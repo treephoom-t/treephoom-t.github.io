@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CSS Specificity</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <div class="container .is-fluid">
+      <div class="columns">
+        <div class="column is-one-quarter">
+          <aside class="menu">
+            <p class="menu-label">
+              Menu
+            </p>
+            <ul class="menu-list">
+              <li><a href="/lab1.html">Lab 1 - HTML</a></li>
+              <li><a href="/lab2.1/index.html">Lab 2.1 - CSS Zen Garden</a></li>
+              <li>
+                <a href="/lab2.2/index.html">Lab 2.2 - CSS Specificity</a>
+              </li>
+            </ul>
+          </aside>
+        </div>
+        <div class="column">
+          <section class="section">
+            <div class="container">
+              <section class="hero is-primary">
+                <div class="hero-body">
+                  <div class="container">
+                    <h1 class="title is-1">
+                      CSS Specificity
+                    </h1>
+                  </div>
+                </div>
+              </section>
+              <h2 class="subtitle is-2">Specificity คือ ???</h2>
+              <p>
+                หากมี CSS Rules มากกว่า 1 อันชี้ไปที่ Element เดียวกัน
+                เบราว์เซอร์จะตัดสินใจว่า จะใช้ Rule อันไหน โดยใช้กฎของ
+                Specificity ดูว่าอันไหนมีค่าคะแนนมากที่สุด ก็จะใช้ Rule นั้น
+              </p>
+            </div>
+          </section>
+          <section>
+            <div class="container">
+              <p>
+                ** ถ้า Specificity มีค่าเท่ากัน ให้ Rule ที่ประกาศลำดับต่อมา
+                มีค่าสูงกว่า
+              </p>
+              <p>
+                ** ถ้า มี !important ที่ Rule ไหน ให้ถือว่าอันนั้นมี Specificity
+                สูงสุด (สูงกว่า inline styling)
+              </p>
+            </div>
+          </section>
+          <section class="section">
+            <div class="container">
+              <h2 class="subtitle is-2">การคำนวณค่า Specificity</h2>
+              <p>
+                กำหนดตัวเลข 4 หลักคือ (0,0,0,0) โดยหลักแรกจากทางซ้าย มีค่า
+                Specificity สูงสุด
+              </p>
+              <p>
+                (1) หาก Rule เป็นแบบ inline styling จะได้คะแนน (1,0,0,0) ทันที
+              </p>
+              <p>หากไม่ใช้ inline styling ให้คำนวณด้วยวิธีการดังนี้</p>
+              <p>(2) หาก Selector นั้นมี ID ให้บวกคะแนน (0,1,0,0) ในแต่ละ ID</p>
+              <p>
+                (3) หาก Selector นั้นมี Class, Psuedo-class หรือ Attribute
+                ให้บวกคะแนน (0,0,1,0) ในแต่ละ Class, Psuedo-class หรือ Attribute
+              </p>
+              <p>
+                (4) หาก Selector นั้นมี Element ให้บวกคะแนน (0,0,0,1) ในแต่ละ
+                Element
+              </p>
+            </div>
+          </section>
+          <section class="section">
+            <div class="container">
+              <h2 class="subtitle is-2">ตัวอย่างการคำนวณ Specificity</h2>
+              <div class="box">
+                <p>
+                  <pre>&lt;p style=&quot;color: blue;&quot;&gt;Hello&lt;/p&gt;</pre> ค่า
+                  Specificity คือ (1,0,0,0) ตามกฎข้อ (1)
+                </p>
+              </div>
+              <div class="box">
+                <p>
+                  <pre>section#hdr div.main input </pre>ค่า Specificity คือ (0,1,1,3)
+                  เพราะ<br />มี Element 3 อัน คือ section,div,input (0,0,0,3)
+                  <br />มี class อยู่ 1 อันคือ .main (0,0,1,0) <br />มี Id อยู่
+                  1 อันคือ #hdr (0,1,0,0) <br />รวมกันได้ (0,1,1,3)
+                </p>
+              </div>
+            </div>
+          </section>
+          <section class="section">
+            <div class="container">
+              <h2 class="subtitle is-2">ตัวอย่างการ Apply Rules</h2>
+              <div class="box">
+                <pre>
+  h2 { color: red; } // &lt;= Specificity: (0,0,0,1)
+  section h2 { color: yellow; } // &lt;= Specificity: (0,0,0,2) </pre
+                >
+                <p>
+                  h2 จะเป็นสีเหลือง เพราะมี Specificity สูงกว่า
+                </p>
+              </div>
+              <div class="box">
+                <pre>
+  h2 { color: red; }
+  h2 { color: blue; }</pre
+                >
+                <p>
+                  h2 จะเป็นสีน้ำเงิน เพราะ ถึงแม้จะชี้ไปที่ h2 เหมือนกัน แต่
+                  Specificity ที่ประกาศภายหลังมี Specificity สูงกว่า
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
