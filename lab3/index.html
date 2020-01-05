@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Lab 3 - JavaScript</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <div class="container .is-fluid">
+      <div class="columns">
+        <div class="column is-one-quarter">
+          <aside class="menu">
+            <p class="menu-label">
+              Menu
+            </p>
+            <ul class="menu-list">
+              <li><a href="/lab1.html">Lab 1 - HTML</a></li>
+              <li><a href="/lab2.1/index.html">Lab 2.1 - CSS Zen Garden</a></li>
+              <li>
+                <a href="/lab2.2/index.html">Lab 2.2 - CSS Specificity</a>
+              </li>
+              <li>
+                <a href="/lab3/index.html">Lab 3 - JavaScript</a>
+              </li>
+            </ul>
+          </aside>
+        </div>
+        <div class="column">
+          <section class="hero">
+            <div class="hero-body">
+              <div class="container">
+                <h1 class="title">
+                  โปรแกรมสุ่มรางวัล
+                </h1>
+              </div>
+            </div>
+          </section>
+
+          <div class="section">
+            <div class="container">
+              <div class="notification">
+                <h1 class="title">
+                  ลงทะเบียนผู้เข้าร่วมงาน
+                </h1>
+                <div class="field">
+                  <label class="label">ชื่อ</label>
+
+                  <div class="control">
+                    <input
+                      id="attendeeName"
+                      class="input"
+                      type="text"
+                      placeholder="ใส่ชื่อที่นี่"
+                    />
+                  </div>
+                </div>
+                <div class="field">
+                  <button class="button" onclick="register()">ลงทะเบียน</button>
+                </div>
+                <div class="field">
+                  <p>จำนวนผู้เข้างาน: <span id="attendeeCount"></span> คน</p>
+                  <ul id="attendeeList"></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section">
+            <div class="container">
+              <div class="notification">
+                <div class="field">
+                  <label class="label">จำนวนของรางวัล</label>
+                  <div class="control">
+                    <input
+                      id="prizeCount"
+                      class="input"
+                      type="number"
+                      type="text"
+                      placeholder="ใส่จำนวนของรางวัล (เลขจำนวนเต็ม)"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="container">
+              <div class="columns is-centered">
+                <button
+                  class="button is-primary is-medium"
+                  onclick="calculate()"
+                >
+                  จับรางวัล
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="section">
+            <div class="container">
+              <div class="notification">
+                <h2 class="subtilte">ผลรางวัล</h2>
+                <ul id="result"></ul>
+              </div>
+            </div>
+          </div>
+          <script src="script.js"></script>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
