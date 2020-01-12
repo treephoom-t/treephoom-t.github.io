@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Lab 3 - JavaScript</title>
+    <title>Lab 4 - jQuery</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
@@ -63,7 +63,9 @@
                   </div>
                 </div>
                 <div class="field">
-                  <button class="button" onclick="register()">ลงทะเบียน</button>
+                  <button class="button is-danger" id="register-btn">
+                    ลงทะเบียน
+                  </button>
                 </div>
                 <div class="field">
                   <p>จำนวนผู้เข้างาน: <span id="attendeeCount"></span> คน</p>
@@ -94,19 +96,16 @@
           <div class="section">
             <div class="container">
               <div class="columns is-centered">
-                <button
-                  class="button is-primary is-medium"
-                  onclick="calculate()"
-                >
+                <button class="button is-success is-medium" id="calculate-btn">
                   จับรางวัล
                 </button>
               </div>
             </div>
           </div>
-          <div class="section">
+          <div class="section" id="result-section">
             <div class="container">
               <div class="notification">
-                <h2 class="subtilte">ผลรางวัล</h2>
+                <h2 class="subtitle">ผลรางวัล</h2>
                 <ul id="result"></ul>
               </div>
             </div>
@@ -114,6 +113,7 @@
         </div>
       </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
